@@ -1,0 +1,31 @@
+void expand() //O(n)
+    {
+        int newcapacity;
+        if(capacity==0)
+        {
+            newcapacity = 1;
+        }
+        else
+        {
+            newcapacity = 2*capacity;
+        }
+        T*newarr = new T[newcapacity];
+
+        for(int i=0;i<newcapacity;i++){
+            newarr[i] = -inf ;
+        }
+        int j = 0;
+        int i;
+        for(i=front;i<front+length();i++)
+        {    j++;
+            newarr[j] = arr[i%capacity];
+           
+        } //O(n)
+        
+        rear = j;
+        front = 1;
+        capacity = newcapacity;
+        if(arr)
+            delete arr;
+        arr = newarr;
+    }
